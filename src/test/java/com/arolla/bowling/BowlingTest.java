@@ -13,7 +13,7 @@ class BowlingTest {
         Bowling bowling = new Bowling();
 
         // When
-        for(int i =1; i<= 10; i++) {
+        for(int i =1; i<= 20; i++) {
             bowling.score(i, 0);
         }
 
@@ -28,7 +28,7 @@ class BowlingTest {
 
         // When
         bowling.score(1, 5);
-        for(int i =2; i<= 10; i++) {
+        for(int i =2; i<= 20; i++) {
             bowling.score(i, 0);
         }
 
@@ -37,19 +37,21 @@ class BowlingTest {
     }
 
     @Test
-    void should_return_score_24_when_strike_5_and_2_pins() {
+    void should_return_score_22_when_strike_5_and_2_pins() {
         // Given
         Bowling bowling = new Bowling();
 
         // When
         bowling.score(1, 10);
         bowling.score(2, 5);
-        bowling.score(3, 2);
-        for(int i =4; i<= 10; i++) {
+        bowling.score(3, 0);
+        bowling.score(4, 2);
+        bowling.score(5, 0);
+        for(int i =6; i<= 20; i++) {
             bowling.score(i, 0);
         }
 
         // Then
-        assertEquals(bowling.getScore(), 24);
+        assertEquals(bowling.getScore(), 22);
     }
 }

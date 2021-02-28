@@ -4,7 +4,7 @@ package com.arolla.bowling;
  * Created by aminebechraoui, on 28/02/2021, in com.arolla.bowling
  */
 public class Bowling {
-    private int[] framesScore = new int[12];
+    private int[] framesScore = new int[21];
     private int score;
 
     public void score(int frame, int pins) {
