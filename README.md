@@ -1,4 +1,4 @@
-#Le principe
+# Le principe
 
 #### Le principe du bowling est d'abattre les 10 quilles placées au bout de la piste.
 
