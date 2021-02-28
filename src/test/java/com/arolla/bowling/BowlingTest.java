@@ -96,4 +96,35 @@ class BowlingTest {
         // Then
         assertEquals(20, bowling.getScore());
     }
+
+    @Test
+    void should_return_score_139_complex_case()
+    {
+        // Given
+        Bowling bowling = new Bowling();
+
+        // When
+        bowling.score(0, 1);
+        bowling.score(1, 2);
+        bowling.score(2, 3);
+        bowling.score(3, 4);
+        bowling.score(4, 5);
+        bowling.score(5, 5);
+        bowling.score(6, 6);
+        bowling.score(7, 3);
+        bowling.score(8, 2);
+        bowling.score(9, 1);
+        bowling.score(10, 10);
+        bowling.score(11, 8);
+        bowling.score(12, 2);
+        bowling.score(13, 4);
+        bowling.score(14, 3);
+        bowling.score(15, 10);
+        bowling.score(16, 10);
+        bowling.score(17, 10);
+        bowling.score(18, 10);
+
+        // Then
+        assertEquals(139, bowling.getScore());
+    }
 }

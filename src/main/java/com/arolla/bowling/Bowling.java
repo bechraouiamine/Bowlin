@@ -12,17 +12,28 @@ public class Bowling {
     }
 
     public int getScore() {
-        for (int i=0; i<20; i++) {
-            if (framesScore[i] == 10) {
-                score += 10 + framesScore[i+1] + framesScore[i+2];
-            } else if (framesScore[i] + framesScore[i+1] == 10) {
-                score += 10 + framesScore[i+2];
-                i++;
+        int index = 0;
+        for (int frame=0; frame<10; frame++) {
+            if (isStrike(index)) {
+                score += 10 + framesScore[index+1] + framesScore[index+2];
+                index++;
+            } else if (isSpare(index)) {
+                score += 10 + framesScore[index+2];
+                index = index + 2;
             } else {
-                score += framesScore[i];
+                score += framesScore[index] + framesScore[index+1];
+                index = index + 2;
             }
         }
         return score;
+    }
+
+    private boolean isSpare(int index) {
+        return framesScore[index] + framesScore[index + 1] == 10;
+    }
+
+    private boolean isStrike(int index) {
+        return framesScore[index] == 10;
     }
 
 }
