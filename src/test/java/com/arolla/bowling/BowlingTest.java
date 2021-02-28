@@ -127,4 +127,24 @@ class BowlingTest {
         // Then
         assertEquals(139, bowling.getScore());
     }
+
+    @Test
+    void should_return_score_83_complex_case()
+    {
+        // Given
+        Bowling bowling = new Bowling();
+
+        // When
+        for(int i =0; i< 16; i++) {
+            bowling.score(i, 3);
+        }
+        bowling.score(16, 5);
+        bowling.score(17, 5);
+        bowling.score(18, 5);
+        bowling.score(19, 5);
+        bowling.score(20, 10);
+
+        // Then
+        assertEquals(83, bowling.getScore());
+    }
 }
