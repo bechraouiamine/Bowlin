@@ -2,8 +2,6 @@ package com.arolla.bowling;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.IntStream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -15,12 +13,27 @@ class BowlingTest {
         Bowling bowling = new Bowling();
 
         // When
-        for(int i =0; i< 10; i++) {
+        for(int i =1; i<= 10; i++) {
             bowling.score(i, 0);
         }
 
         // Then
         assertEquals(bowling.getScore(), 0);
-
     }
+
+    @Test
+    void should_return_number_of_pins_when_some_have_fallen() {
+        // Given
+        Bowling bowling = new Bowling();
+
+        // When
+        bowling.score(1, 5);
+        for(int i =2; i<= 10; i++) {
+            bowling.score(i, 0);
+        }
+
+        // Then
+        assertEquals(bowling.getScore(), 5);
+    }
+    
 }
