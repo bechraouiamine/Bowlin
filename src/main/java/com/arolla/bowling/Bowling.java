@@ -12,13 +12,17 @@ public class Bowling {
     }
 
     public int getScore() {
-        for (int i=1; i<=10; i++) {
+        for (int i=0; i<20; i++) {
             if (framesScore[i] == 10) {
                 score += 10 + framesScore[i+1] + framesScore[i+2];
+            } else if (framesScore[i] + framesScore[i+1] == 10) {
+                score += 10 + framesScore[i+2];
+                i++;
             } else {
                 score += framesScore[i];
             }
         }
         return score;
     }
+
 }

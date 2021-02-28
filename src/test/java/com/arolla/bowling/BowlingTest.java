@@ -13,12 +13,12 @@ class BowlingTest {
         Bowling bowling = new Bowling();
 
         // When
-        for(int i =1; i<= 20; i++) {
+        for(int i =0; i< 20; i++) {
             bowling.score(i, 0);
         }
 
         // Then
-        assertEquals(bowling.getScore(), 0);
+        assertEquals(0, bowling.getScore());
     }
 
     @Test
@@ -27,13 +27,13 @@ class BowlingTest {
         Bowling bowling = new Bowling();
 
         // When
-        bowling.score(1, 5);
-        for(int i =2; i<= 20; i++) {
+        bowling.score(0, 5);
+        for(int i =1; i< 20; i++) {
             bowling.score(i, 0);
         }
 
         // Then
-        assertEquals(bowling.getScore(), 5);
+        assertEquals(5, bowling.getScore());
     }
 
     @Test
@@ -42,16 +42,36 @@ class BowlingTest {
         Bowling bowling = new Bowling();
 
         // When
-        bowling.score(1, 10);
-        bowling.score(2, 5);
-        bowling.score(3, 0);
-        bowling.score(4, 2);
-        bowling.score(5, 0);
-        for(int i =6; i<= 20; i++) {
+        bowling.score(0, 10);
+        bowling.score(1, 5);
+        bowling.score(2, 0);
+        bowling.score(3, 2);
+        bowling.score(4, 0);
+        for(int i =5; i< 20; i++) {
             bowling.score(i, 0);
         }
 
         // Then
-        assertEquals(bowling.getScore(), 22);
+        assertEquals(22, bowling.getScore());
+    }
+
+    @Test
+    void should_return_score_38_when_strike_and_spare_3_and_2_pins()
+    {
+        // Given
+        Bowling bowling = new Bowling();
+
+        // When
+        bowling.score(0, 10);
+        bowling.score(1, 5);
+        bowling.score(2, 5);
+        bowling.score(3, 3);
+        bowling.score(4, 2);
+        for(int i =5; i< 20; i++) {
+            bowling.score(i, 0);
+        }
+
+        // Then
+        assertEquals(38, bowling.getScore());
     }
 }
