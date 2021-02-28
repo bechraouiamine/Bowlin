@@ -35,5 +35,21 @@ class BowlingTest {
         // Then
         assertEquals(bowling.getScore(), 5);
     }
-    
+
+    @Test
+    void should_return_score_24_when_strike_5_and_2_pins() {
+        // Given
+        Bowling bowling = new Bowling();
+
+        // When
+        bowling.score(1, 10);
+        bowling.score(2, 5);
+        bowling.score(3, 2);
+        for(int i =4; i<= 10; i++) {
+            bowling.score(i, 0);
+        }
+
+        // Then
+        assertEquals(bowling.getScore(), 24);
+    }
 }
