@@ -74,4 +74,26 @@ class BowlingTest {
         // Then
         assertEquals(38, bowling.getScore());
     }
+
+    @Test
+    void should_return_score_20_when_strike_and_spare_separated_by_null_frame()
+    {
+        // Given
+        Bowling bowling = new Bowling();
+
+        // When
+        bowling.score(0, 0);
+        bowling.score(1, 0);
+        bowling.score(2, 10);
+        bowling.score(3, 0);
+        bowling.score(4, 0);
+        bowling.score(5, 5);
+        bowling.score(6, 5);
+        for(int i =7; i< 20; i++) {
+            bowling.score(i, 0);
+        }
+
+        // Then
+        assertEquals(20, bowling.getScore());
+    }
 }
